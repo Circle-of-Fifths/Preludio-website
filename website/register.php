@@ -2,9 +2,9 @@
 
 
 //connect to database
-$user = 'root';
+$user = 'id1198406_root';
 $pass = '';
-$db = 'my_db';
+$db = 'id1198406_my_db';
 
 //$db = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect");
 

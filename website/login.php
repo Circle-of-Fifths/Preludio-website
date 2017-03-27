@@ -29,9 +29,9 @@
 </form>
 
 <?php
-$user = 'root';
+$user = 'id1198406_root';
 $pass = '';
-$db = 'my_db';
+$db = 'id1198406_my_db';
 if(isset ($_POST["submit1"])){
   $db = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect");
   mysqli_select_db($db,"my_db");
