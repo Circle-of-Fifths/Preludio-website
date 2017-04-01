@@ -3,15 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <title>Login</title>
-  
-  
-  
-      <link rel="stylesheet" href="css/style.css">
-
-  
+  <link rel="stylesheet" href="css/login.css">
+  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Jim+Nightshade|Lobster" rel="stylesheet">
 </head>
 
 <body>
+  <h1>Login</h1>
   <form name="form1" action="" method="post">
   <table>
 

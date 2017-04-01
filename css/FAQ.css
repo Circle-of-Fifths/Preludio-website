@@ -1,5 +1,5 @@
 body {
-    background-color: #6eaf28;
+    background-color: #edd5d0;
 }
 h1 {
     color: black;
@@ -28,23 +28,5 @@ ul>li.name > a {
 }
 
 ul>li.name > a:hover {
-    background-color: #111111;
-}
-
-ul[title="side_bar"]{
-    width:250px;
-    height:100px;
-    background-color: #333333;
-}
-
-ul>li.name2>a{
-    display: list-item;
-    color: white;
-    text-align: center;
-    padding: 16px;
-    text-decoration: none;
-}
-
-ul>li.name2 > a:hover {
     background-color: #111111;
 }
