@@ -1,61 +1,54 @@
-<!DOCTYPE html>
-<html >
-<head>
-  <meta charset="UTF-8">
-  <title>Login</title>
-  <link rel="stylesheet" href="css/login.css">
-  <link href="https://fonts.googleapis.com/css?family=Indie+Flower|Jim+Nightshade|Lobster" rel="stylesheet">
-</head>
-
-<body>
-  <h1>Login</h1>
-  <form name="form1" action="" method="post">
-  <table>
-
-  <tr>
-  <td>Enter Username</td>
-  <td><input type="text" name="username1" required pattern="^[A-Za-z0_-9]+"></td>
-  </tr>
-
-  <tr>
-  <td>Enter Password</td>
-  <td><input type="password" name="password1" required pattern="^[A-Za-z0_-9]+"></td>
-  </tr>
-<td colspan="2" align="center"><input type="submit" name="submit1" value="login"></td>
-  </table>
-</form>
-
 <?php
-$user = 'root';
-$pass = '';
-$db = 'my_db';
-if(isset ($_POST["submit1"])){
-  $db = new mysqli('localhost', $user, $pass, $db) or die("Unable to connect");
-  mysqli_select_db($db,"my_db");
-  $count=0;
-  $res=mysqli_query($db,"select * from registration where username ='$_POST[username1]' && password='$_POST[password1]'");
-  $count=mysqli_num_rows($res); 
-  if($count>0){
-    ?>
-      <script type="text/javascript">
-        
-      window.location="homepage.html";
-      </script>
-    <?php
-   
-  }
-  else{
-    ?>
-      <script type="text/javascript">
-        alert("incorrect username or password");
-      </script>
-    <?php
-  }
-}
+	session_start();
+
+	if (isset($_SESSION['user_id'])) {
+		header("Location: /");
+	}
+
+	require 'database.php';
+
+	if (!empty($_POST['username']) && !empty($_POST['password'])):
+		$records = $conn->prepare('SELECT id, username, password FROM users WHERE username = :username');
+		$records->bindParam(':username', $_POST['username']);
+		$records->execute();
+		$results = $records->fetch(PDO::FETCH_ASSOC);
+
+		$message = '';
+
+		if (count($results) > 0 && password_verify($_POST['password'], $results['password']) ) {
+			$_SESSION['user_id'] = $results['id'];
+			header("Location: /");
+		} else {
+			$message = 'Those credentials don\'t match or they don\'t exist.';
+		}
+	endif;
 
 ?>
 
+<html>
+<head>
+	<title>Login</title>
+	<link rel="stylesheet" href="assets/styles/stylesheet.css">
+</head>
+<body>
+	<h1>Login</h1>
+
+	<?php if(!empty($message)): ?>
+		<p> <font color="red"><?= $message ?></font></p>
+	<?php endif; ?>
+
+	<ul>
+		<li><a href = "login.php">Login</a></li>
+		<li><a href = "register.php">Registration</a></li>
+		<li><a href = "scores.php">Score Ranking</a></li>
+		<li><a href = "faq.html">FAQ</a></li>
+		<li><a href = "about.html">About</a></li>
+	</ul>
+
+	<form action="login.php" method="POST">
+		<input type="text" name="username" placeholder="Username" required>
+		<input type="password" name="password" placeholder="Password" required>
+		<input type="submit">
+	</form>
 </body>
 </html>
-
-
