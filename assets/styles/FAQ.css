@@ -1,0 +1,29 @@
+body {
+    background-color: #edd5d0;
+}
+h1 {
+    color: black;
+    text-align: center;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    margin-bottom: 15px auto;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333333;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+    float: right;
+}
+
+li a:hover {
+    background-color: #111111;
+}

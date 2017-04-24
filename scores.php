@@ -52,6 +52,7 @@
 		<?php endif;?>
 		<li><a href = "faq.html">FAQ</a></li>
 		<li><a href = "about.html">About</a></li>
+		<li><a href = "download.html">Downloads</a></li>
 	</ul>
 
 	<center>

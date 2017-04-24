@@ -38,11 +38,13 @@
 	<?php endif; ?>
 
 	<ul>
-		<li><a href = "login.php">Login</a></li>
+		<li><a href = "/">Home</a>
+		<!-- <li><a href = "login.php">Login</a></li> -->
 		<li><a href = "register.php">Registration</a></li>
-		<li><a href = "scores.php">Score Ranking</a></li>
+		<li><a href = "high_scores.php">High Scores</a></li>
 		<li><a href = "faq.html">FAQ</a></li>
 		<li><a href = "about.html">About</a></li>
+		<li><a href = "download.html">Downloads</a></li>
 	</ul>
 
 	<form action="login.php" method="POST">
@@ -50,5 +52,6 @@
 		<input type="password" name="password" placeholder="Password" required>
 		<input type="submit">
 	</form>
+    <!-- <center><a href="forgot.php">Forgot Password?</a></center> -->
 </body>
 </html>
